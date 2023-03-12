@@ -28,7 +28,7 @@
         - panggil routes
     6.  jalankan server : node server.js
 
-## GET Data
+## GET All Data Mahasiswa
 
     Todo:
     1.  controller.js
@@ -37,3 +37,13 @@
         - route /mahasiswa
     3.  pengujian pada browser
         - http://localhost:5000/mahasiswa
+
+## GET Single Data Mahasiswa berdasarkan id
+
+    Todo:
+    1.  controller.js
+        - menampilkan satu data mahasiswa berdasarkan id
+    2.  routes.js
+        - route /mahasiswa/:id
+    3.  pengujian pada browser
+        - http://localhost:5000/mahasiswa/1

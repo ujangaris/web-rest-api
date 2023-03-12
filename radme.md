@@ -27,3 +27,13 @@
     5.  server.js
         - panggil routes
     6.  jalankan server : node server.js
+
+## GET Data
+
+    Todo:
+    1.  controller.js
+        - menampilkan semua data mahasiswa
+    2.  routes.js
+        - route /mahasiswa
+    3.  pengujian pada browser
+        - http://localhost:5000/mahasiswa

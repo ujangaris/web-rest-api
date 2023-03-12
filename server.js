@@ -7,6 +7,10 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+// panggil routes
+const routes = require('./routes')
+routes(app)
+
 app.listen(5000, () => {
   console.log(`Server runing on port 5000!`)
 })

@@ -1,3 +1,6 @@
 # Web Rest API
 
-# Web Rest API - latihan
+## Configurasi & installasi
+    Todo: 
+    1.  npm init
+    2.  npm  install --save express mysql body-parser

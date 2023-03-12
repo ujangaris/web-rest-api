@@ -38,3 +38,24 @@ exports.mahasiswa = function (req, res) {
     }
   )
 }
+
+// menambah data mahasiswa
+exports.tambahMahasiswa = function (req, res) {
+  const nim = req.body.nim
+  const nama = req.body.nama
+  const jurusan = req.body.jurusan
+
+  connection.query(
+    'INSERT INTO mahasiswa (nim, nama, jurusan) VALUES (?, ?, ?)',
+    [nim, nama, jurusan],
+    function (err, rows, fields) {
+      if (err) {
+        console.log(err)
+        res.status(500).send('Terjadi kesalahan saat menambahkan data')
+      } else {
+        // res.status(200).send('Berhasil menambahkan data!')
+        response.ok('Berhasil menambahkan data!', res)
+      }
+    }
+  )
+}

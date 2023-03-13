@@ -104,3 +104,38 @@
             }
         - buka request baru dengan enpoint GET http://localhost:5000/mahasiswa
         - lihat hasil response akan ada data  yang berhasil terhapus.
+
+## Nested json Object
+
+    Todo:
+    1.  controller.js
+        - menampilkan matakuliah group
+
+    2.  routes.js
+        - tampilmatakuliah method GET
+    3.  pada phpmyadmin:
+        - tambahkan 2 table baru :
+            - table : matakuliah
+                * id_matakuliah
+                * matakuliah
+                * sks
+            - table : krs
+                * id_krs
+                * tanggal_krs
+                * id_matakuliah
+                * id_mahasiswa
+        - kemudian insert data disetiap table
+        - pada table krs masuk ke bagian SQL kemudian relasikan data yang sudah kita insert
+          menggunakan query:
+             "SELECT mahasiswa.id_mahasiswa, mahasiswa.nim,mahasiswa.nama, mahasiswa.jurusan, matakuliah.matakuliah,matakuliah.sks
+                FROM krs
+                JOIN mahasiswa
+                JOIN matakuliah
+                WHERE krs.id_mahasiswa = mahasiswa.id_mahasiswa
+                AND krs.id_matakuliah = matakuliah.id_matakuliah
+                ORDER BY mahasiswa.id_mahasiswa;"
+    4.  pengujian pada postman:
+        - endpoint GET http://localhost:5000/tampilmatakuliah
+        - kemudian send
+        - jika berhasil akan ada response yakni tampil data krs yang terhubung dengan mahasiswa dan matakuliah
+

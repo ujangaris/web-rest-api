@@ -206,3 +206,38 @@
 
         jika email sudah terdaftar tidak akan bisa register,
         dan akan ada response: Email sudah terdaftar!
+
+## Login User & generate token
+
+    Todo:
+    1.  middleware/auth.js
+        - controller untuk login
+        - lakukan query ke database
+        - membuat isi  nilai yang akan diberikan pada variabel table diatas
+        - menggabungkan nilai pada variabel query dan table
+        - akukan query ke database dengan mengirimkan query yang telah diformat
+          dan menjalankan sebuah fungsi callback yang akan dijalankan ketika query selesai dieksekusi
+        - jika usernya ada langsung tersimpan ditable access token
+    2.  middleware/index.js
+        - daftarkan endpoint login
+    3.  setiap melakukan perubahan jangan lupa restart servernya : node server.js
+    4.  pengujian pada postman:
+        Enpoint Login : POST http://localhost:5000/auth/api/v1/login
+        - body -> x-www-form-urlencoded
+        - isi form dengan :
+        ,email,password, kemudian send
+        - jika berhasil akan ada response:
+        {
+            "success": true,
+            "message": "Token jwt tergenerate!",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb3dzIjpbeyJpZCI6NiwidXNlcm5hbWUiOiJnaWxhbmciLCJlbWFpbCI6ImdpbGFuZ0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IjIwMmNiOTYyYWM1OTA3NWI5NjRiMDcxNTJkMjM0YjcwIiwicm9sZSI6MiwidGFuZ2dhbF9kYWZ0YXIiOiIyMDIzLTAzLTEzVDE3OjAwOjAwLjAwMFoifV0sImlhdCI6MTY3ODc0OTk4OSwiZXhwIjoxNjc4NzUxNDI5fQ.n8ewrKygpEmwX5iTyasyClOLfcVrWlztZniRcq3c5HQ",
+            "currUser": 6
+        }
+
+
+        jika email dan password tidak match/sama ,
+        dan akan ada response:
+        {
+            "error": true,
+            "message": "Email atau passwordnya salah!"
+        }

@@ -110,7 +110,6 @@
     Todo:
     1.  controller.js
         - menampilkan matakuliah group
-
     2.  routes.js
         - tampilmatakuliah method GET
     3.  pada phpmyadmin:
@@ -139,3 +138,12 @@
         - kemudian send
         - jika berhasil akan ada response yakni tampil data krs yang terhubung dengan mahasiswa dan matakuliah
 
+## Install JWT dan Package
+
+    Todo:
+    1.  install morgan
+        - npm i morgan
+    2.  install IP
+        - npm i ip
+    3.  install jsonwebtoken
+        - npm i jsonwebtoken

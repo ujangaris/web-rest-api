@@ -165,3 +165,44 @@
         - id_user : int
         - access_token  : text
         - ip_address : varchar
+    3.  pada table akses_token
+        - relasikan table user dan table akses_token
+        - on_delete: casecade
+        - on_update: casecade
+        - column : id_user
+        - database : dbrestapi
+        - table : use
+        - column : id
+
+## Registrasi User Baru
+
+    Todo:
+    1.  install md5
+        - npm i md5
+        - encripsi password ketika user melakukan registrasi
+    2.  config/secret.js
+    3.  midleware/auth.js
+        - panggil package
+        - controller untuk register
+        - pengecekan email yang sudah terdaftar
+    4.  midleware/index.js
+        - daftarkan controller auth.js
+    5.  server.js
+        - tambahkan morgan
+        - panggil morgannya
+        - daftarkan menu routes dari index
+    6.  pengujian pada postman:
+        Enpoint Register : POST http://localhost:5000/auth/api/v1/register
+        - body -> x-www-form-urlencoded
+        - isi form dengan :
+        username,email,password, role(1 atau 2 karna boolean), tanggal_daftar
+        kemudian send
+        - jika berhasil akan ada response:
+        {
+            "status": 200,
+            "values": "Berhasil menambahkan data user baru!"
+        }
+
+
+        jika email sudah terdaftar tidak akan bisa register,
+        dan akan ada response: Email sudah terdaftar!

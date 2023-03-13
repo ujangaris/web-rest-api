@@ -147,3 +147,21 @@
         - npm i ip
     3.  install jsonwebtoken
         - npm i jsonwebtoken
+
+## Tambah Table user & akses_token
+
+    Todo:
+    1.  table user
+        pada phpmyadmin:
+        - id :int
+        - username : varchar
+        - email  : varchar
+        - password : varchar
+        - role : int
+        - tanggal_daftar : date
+    2.  table akses_token
+        pada phpmyadmin:
+        - id_akses_token :int
+        - id_user : int
+        - access_token  : text
+        - ip_address : varchar

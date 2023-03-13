@@ -66,3 +66,22 @@
             }
         - buka request baru dengan enpoint GET http://localhost:5000/mahasiswa
         - lihat hasil response akan ada data baru yang berhasil terbuat.
+
+## UPDATE DATA - Update data mahasiswa
+
+    Todo:
+    1.  controller.js
+        - mengubah data berdasarkan id mahasiswa
+    2.  routes.js
+        - /mahasiswa/update dengan method PUT
+    3.  pengujian pada postman:
+        - endpoint PUT http://localhost:5000/mahasiswa/update
+        - body -> x-www-form-urlencoded
+        - isi form dengan id,nim, nama, dan jurusan kemudian send
+        - jika berhasil akan ada response:
+            {
+                "status": 200,
+                "values": "Berhasil menambahkan data!"
+            }
+        - buka request baru dengan enpoint GET http://localhost:5000/mahasiswa
+        - lihat hasil response akan ada data  yang berhasil terupdate.

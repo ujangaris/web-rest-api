@@ -82,3 +82,23 @@ exports.ubahDataMahasiswa = function (req, res) {
     }
   )
 }
+
+// Delete data mashasiswa
+exports.deleteMahasiswa = function (req, res) {
+  const id = req.body.id_mahasiswa
+  connection.query(
+    'DELETE FROM mahasiswa WHERE id_mahasiswa=? ',
+    [id],
+    function (err, rows, fields) {
+      if (err) {
+        console.log(err)
+        res.status(500).send('Terjadi kesalahan saat menghapus data')
+      } else if (rows.affectedRows === 0) {
+        // tambahkan kondisi untuk handle data tidak ditemukan
+        res.status(404).send('Data tidak ditemukan')
+      } else {
+        response.ok('Berhasil dihapus', res)
+      }
+    }
+  )
+}

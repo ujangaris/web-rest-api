@@ -81,7 +81,26 @@
         - jika berhasil akan ada response:
             {
                 "status": 200,
-                "values": "Berhasil menambahkan data!"
+                "values": "Berhasil mengupdate data!"
             }
         - buka request baru dengan enpoint GET http://localhost:5000/mahasiswa
         - lihat hasil response akan ada data  yang berhasil terupdate.
+
+## DELETE DATA - Delete data mahasiswa
+
+    Todo:
+    1.  controller.js
+        - Delete data mashasiswa
+    2.  routes.js
+        - /mahasiswa/delete method DELETE
+    3.  pengujian pada postman:
+        - endpoint PUT http://localhost:5000/mahasiswa/delete
+        - body -> x-www-form-urlencoded
+        - isi form dengan id,kemudian send
+        - jika berhasil akan ada response:
+            {
+                "status": 200,
+                "values": "Berhasil mendelete data!"
+            }
+        - buka request baru dengan enpoint GET http://localhost:5000/mahasiswa
+        - lihat hasil response akan ada data  yang berhasil terhapus.

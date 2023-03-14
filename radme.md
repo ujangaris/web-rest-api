@@ -241,3 +241,42 @@
             "error": true,
             "message": "Email atau passwordnya salah!"
         }
+
+## Verifikasi Token JWT & Role User
+
+    Todo:
+    1.  middleware/verifikasi.js
+        - buat fnction verifikasi untuk memeriksa otentikasi pengguna
+        - check authorization header with bearer token
+        - memverifikasi token JWT
+    2.  middleware/auth.js
+        - akses halaman sesuai role
+    3.  middleware/index.js
+        - enpoint yang perlu autorization
+    4.  pengujian pada postman:
+        lakukan login dengan user role=2 pada Enpoint Login : POST http://localhost:5000/auth/api/v1/login
+        kemudian pada Enpoint rahasia : POST http://localhost:5000/auth/api/v1/rahasia
+        - authorization -> Bearer Token, kemudian copas token dari user yang login
+        - body -> x-www-form-urlencoded
+        - isi form dengan :
+        ,role = 2 (pada pengujian ini bisa diganti 1,2, atau 3 jika multiple user*), namun pada pengujian ini user yang dapat mengakses hanya user dengan role = 2 kemudian send
+        - jika berhasil akan ada response:
+        {
+            "status": 200,
+            "values": "Halaman ini hanya untuk user dengan role = 2!"
+        }
+
+
+        jika role pada body diganti menjai 1/3 lain dari pada 2 ,
+        dan akan ada response:
+        {
+            "auth": false,
+            "message": "Gagal mengotorisasi role anda!"
+
+        }
+
+        jika token dikosongkan rensponnya:
+        {
+            "auth": false,
+            "message": "Token tidak tersedia!"
+        }
